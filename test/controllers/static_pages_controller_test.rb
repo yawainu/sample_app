@@ -4,19 +4,30 @@ class StaticPagesControllerTest < ActionController::TestCase
   test "should get home" do
     get :home
     assert_response :success
-    assert_select "title", "Home | Ruby on Rails Tutorial Sample App"
+    title_check('Home')
   end
 
   test "should get help" do
     get :help
     assert_response :success
-    assert_select "title", "help | Ruby on Rails Tutorial Sample App"
+    title_check('help')
   end
 
   test "should get about" do
     get :about
     assert_response :success
-    assert_select "title", "about | Ruby on Rails Tutorial Sample App"
+    title_check('about')
+  end
+
+  test "should get contact" do
+    get :contact
+    assert_response :success
+    title_check('contact')
+  end
+
+  # def
+  def title_check(title)
+    assert_select "title", "#{title} | Ruby on Rails Tutorial Sample App"
   end
 
 end
