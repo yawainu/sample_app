@@ -4,7 +4,7 @@ class StaticPagesControllerTest < ActionController::TestCase
   test "should get home" do
     get :home
     assert_response :success
-    title_check('Home')
+    title_check('')
   end
 
   test "should get help" do
@@ -26,8 +26,12 @@ class StaticPagesControllerTest < ActionController::TestCase
   end
 
   # def
-  def title_check(title)
-    assert_select "title", "#{title} | Ruby on Rails Tutorial Sample App"
+  def title_check(title = '')
+    if title.empty?
+      assert_select "title", "Ruby on Rails Tutorial Sample App"
+    else
+      assert_select "title", "#{title} | Ruby on Rails Tutorial Sample App"
+    end
   end
 
 end
