@@ -25,13 +25,4 @@ class StaticPagesControllerTest < ActionController::TestCase
     title_check('contact')
   end
 
-  # def
-  def title_check(title = '')
-    if title.empty?
-      assert_select "title", "Ruby on Rails Tutorial Sample App"
-    else
-      assert_select "title", "#{title} | Ruby on Rails Tutorial Sample App"
-    end
-  end
-
 end

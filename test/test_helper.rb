@@ -7,4 +7,11 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def title_check(title = '')
+    if title.empty?
+      assert_select "title", "Ruby on Rails Tutorial Sample App"
+    else
+      assert_select "title", "#{title} | Ruby on Rails Tutorial Sample App"
+    end
+  end
 end
